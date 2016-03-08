@@ -32,17 +32,18 @@ public class L134_GasStation {
         if (endLoc < startLoc) endLoc = gas.length;
         for (int i = endLoc + 1; i < gas.length; i++) {
             max += gas[i] - cost[i];
-            if (max < 0)
-                return -1;
+            if (max < 0) return -1;
         }
         for (int i = 0; i < startLoc; i++) {
             max += gas[i] - cost[i];
-            if (max < 0)
-                return -1;
+            if (max < 0) return -1;
         }
         return startLoc==gas.length?startLoc-1:startLoc;
+    }
 
-        /*int start = 0, count = 0, cur = 0, n = gas.length;
+    // 简洁解法，多分析，找原型，做简化
+    public int canCompleteCircuit02(int[] gas, int[] cost) {
+        int start = 0, count = 0, cur = 0, n = gas.length;
         while (count < n && start < 2 * n) {
             cur += gas[start % n] - cost[start % n];
             if (cur < 0) {
@@ -53,6 +54,6 @@ public class L134_GasStation {
             }
             start++;
         }
-        return count < n ? -1 : start % n;*/
+        return count < n ? -1 : start % n;
     }
 }
