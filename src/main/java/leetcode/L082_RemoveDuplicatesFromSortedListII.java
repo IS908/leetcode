@@ -17,8 +17,7 @@ public class L082_RemoveDuplicatesFromSortedListII {
             if (head.next != null && head.next.val == val) {// if we have duplicates in pair of values
                 head = head.next; //get on last duplicate in pair of values
                 while(head != null && head.val == val) head = head.next; // iteratively we get the next value
-            }
-            else {
+            } else {
                 p.next = head; // head points to unique value
                 p = p.next;
                 head = head.next;
