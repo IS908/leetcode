@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.Utils.ListNode;
+
 /**
  * Given a linked list, determine if it has a cycle in it.
  * <p/>

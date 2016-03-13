@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.Utils.ListNode;
+
 /**
  * Given a linked list, swap every two adjacent nodes and return its head.
  * <p/>

@@ -1,5 +1,6 @@
 package leetcode;
 
+import leetcode.Utils.ListNode;
 import org.junit.Test;
 
 /**

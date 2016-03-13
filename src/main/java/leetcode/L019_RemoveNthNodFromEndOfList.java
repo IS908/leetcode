@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.Utils.ListNode;
+
 /**
  * 快慢指针解法
  * <p/>
