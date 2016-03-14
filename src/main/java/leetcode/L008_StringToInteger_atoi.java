@@ -1,12 +1,12 @@
 package leetcode;
 
 /**
- Implement atoi to convert a string to an integer.
-
- Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
-
- Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
-
+ * Implement atoi to convert a string to an integer.
+ * <p/>
+ * Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
+ * <p/>
+ * Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
+ * <p/>
  * Created by kevin on 2016/2/26.
  */
 public class L008_StringToInteger_atoi {
@@ -31,8 +31,8 @@ public class L008_StringToInteger_atoi {
             else zero = false;
             if (ch[i] > '9' || ch[i] < '0') break;
             tmp = ch[i] - '0';
-            if(result>Integer.MAX_VALUE/10||result==Integer.MAX_VALUE/10&&Integer.MAX_VALUE %10 < tmp)
-                return flag?Integer.MIN_VALUE:Integer.MAX_VALUE;
+            if (result > Integer.MAX_VALUE / 10 || result == Integer.MAX_VALUE / 10 && Integer.MAX_VALUE % 10 < tmp)
+                return flag ? Integer.MIN_VALUE : Integer.MAX_VALUE;
             result = result * 10 + tmp;
         }
         if (flag) {
