@@ -10,20 +10,17 @@ package leetcode;
 @Deprecated
 public class L012_IntegerToRoman {
     public String intToRoman(int num) {
-        char[] roman = new char[]{'I', 'V', 'X', 'L', 'C', 'D', 'M'};
-        String result = null;
-        int current = num / 1000;
-        for (int i = 0; i < current; i++) {
-            result += "M";
+        final int[] radix = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        final String[] roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; num > 0; i++) {
+            int count = num / radix[i];
+            num %= radix[i];
+            while (count > 0) {
+                sb.append(roman[i]);
+                count--;
+            }
         }
-        num = num % 1000;
-
-        current = num/100;
-        if (current > 8) {
-
-        }
-        num = num % 100;
-
-        return null;
+        return sb.toString();
     }
 }
