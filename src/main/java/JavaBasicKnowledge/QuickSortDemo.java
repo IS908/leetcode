@@ -1,10 +1,5 @@
 package JavaBasicKnowledge;
 
-import org.omg.CORBA.Any;
-
-import javax.xml.transform.Templates;
-import java.util.Comparator;
-
 /**
  * 快排的示例
  * Created by kevin on 2016/3/10.

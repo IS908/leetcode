@@ -1,7 +1,5 @@
 package leetcode;
 
-import sun.org.mozilla.javascript.internal.xml.XMLLib;
-
 /**
  Reverse digits of an integer.
 
