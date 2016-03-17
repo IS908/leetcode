@@ -33,11 +33,11 @@ public class L143_ReorderList {
         // 翻转后半部分链表
         ListNode postList = revorseList(curr.next);
         curr.next = null;
-        //head.Print();
+        //head.print();
 
         // 合并两个链表
         mergeLists(head, postList);
-        //head.Print();
+        //head.print();
     }
 
     private void mergeLists(ListNode a, ListNode b) {
@@ -70,7 +70,7 @@ public class L143_ReorderList {
             r = r.next;
         }
         q.next = p;
-        //q.Print();
+        //q.print();
         return q;
     }
 }

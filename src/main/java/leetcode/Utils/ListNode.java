@@ -11,7 +11,7 @@ public class ListNode {
         val = x;
     }
 
-    public void Print() {
+    public void print() {
         if (this.next == null) {
             System.out.println(this.val);
             return;
