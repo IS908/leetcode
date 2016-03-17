@@ -25,6 +25,7 @@ public class L145_BinaryTreePostorderTraversal {
      * 非递归实现 后序遍历
      * (不同于前序、中序遍历，后序遍历需要有一个标志量标记节点是访问还是继续压栈)
      * 需要仔细琢磨一下
+     *
      * @param root
      * @return
      */
@@ -32,8 +33,9 @@ public class L145_BinaryTreePostorderTraversal {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode node = root, pre = node;
-        boolean flag = true;
+        TreeNode node = root;
+        TreeNode pre = node;    // 记录当前节点的右子树是否被访问过，若访问过则该节点的左子树、右子树都被访问到了，可以访问该节点了
+        boolean flag = true;    // 指示是否沿着该节点的左子树压栈
         while (node != null || !stack.empty()) {
             if (node != null && flag) {
                 stack.push(node);
