@@ -1,6 +1,5 @@
 package JavaBasicKnowledge;
 
-import javax.crypto.Cipher;
 import java.nio.BufferUnderflowException;
 
 /**
