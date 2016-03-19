@@ -1,6 +1,7 @@
 package JavaBasicKnowledge;
 
 import java.nio.BufferUnderflowException;
+import java.util.Arrays;
 
 /**
  * 二项堆的数据结构及相关操作类
@@ -23,9 +24,8 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> {
 
     public BinaryHeap(AnyType[] items) {
         currentSize = items.length - 1;
-        array = (AnyType[]) new Comparable[(currentSize + 2) * 11 / 10];
-        int i = 1;
-        for (AnyType item : items) array[i++] = item;
+        int newCapacity = (currentSize + 2) * 11 / 10;
+        array = Arrays.copyOf(items, newCapacity);
         buildHeap();
     }
 
