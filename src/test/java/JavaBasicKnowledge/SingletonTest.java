@@ -19,7 +19,6 @@ public class SingletonTest {
         System.out.println(singleton02);
         System.out.println(singleton03);
         System.out.println(singleton04);
-        System.out.println(singleton05);
-
+        System.out.println(singleton05.toString());
     }
 }
