@@ -28,9 +28,18 @@ import leetcode.Utils.TreeNode;
  * <p/>
  * Created by kevin on 2016/3/26.
  */
+@Deprecated
 public class L114_FlattenBinaryTreeToLinkedList {
     public void flatten(TreeNode root) {
+        if (root == null)  return;
+        flatten(root.left);
+        flatten(root.right);
 
+        if (root.left == null) return;
+        TreeNode p = root.left;
+        while (p.right != null)  p = p.right;
+        p.right = root.right;
+        root.right = null;
     }
 
 }

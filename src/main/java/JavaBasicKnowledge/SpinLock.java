@@ -1,11 +1,12 @@
 package JavaBasicKnowledge;
 
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.locks.Lock;
 
 /**
  * Created by kevin on 2016/3/22.
  */
-public class SpinLock {
+public class SpinLock{
     private AtomicReference<Thread> sign = new AtomicReference<>();
 
     public void lock() {

@@ -32,6 +32,12 @@ public class L101_SymmetricTree {
         return symmetricOrder(root.left, root.right);
     }
 
+    /**
+     * 先序遍历检验是否对称
+     * @param first
+     * @param second
+     * @return
+     */
     private boolean symmetricOrder(TreeNode first, TreeNode second) {
         TreeNode node1, node2;
         Stack<TreeNode> one = new Stack<>();
