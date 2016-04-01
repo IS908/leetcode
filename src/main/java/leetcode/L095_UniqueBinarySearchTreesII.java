@@ -22,6 +22,7 @@ import java.util.List;
 @Deprecated
 public class L095_UniqueBinarySearchTreesII {
     public List<TreeNode> generateTrees(int n) {
+        if (n < 1)  return new LinkedList<>();
         return generateTrees(1, n);
     }
 
