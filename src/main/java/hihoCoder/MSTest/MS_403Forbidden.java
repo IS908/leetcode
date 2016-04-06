@@ -44,7 +44,6 @@ public class MS_403Forbidden {
         for (int i = 0; i < 4; i++) numIp[i] = Integer.valueOf(ips[i]);
         for (Integer[] rule : rules) {
             if (matchIP(rule, numIp)) { // 匹配到该规则
-                System.out.println(rule[2]);
                 if (rule[5] == 1) return true;
                 else return false;
             }
