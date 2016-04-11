@@ -8,7 +8,7 @@ package leetcode;
  * <p/>
  * Created by kevin on 2016/4/11.
  */
-public class MergeSortedArray {
+public class L88_MergeSortedArray {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int n1 = m - 1, n2 = n - 1, cur = m + n - 1;
         while (n1 >= 0 && n2 >= 0) {
