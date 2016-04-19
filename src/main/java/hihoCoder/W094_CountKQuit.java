@@ -55,10 +55,10 @@ public class W094_CountKQuit {
 
     // 链表方式的解法
     private static int countKquit(int n, int k) {
-        LinkedList head = new LinkedList(0);
-        LinkedList node = head;
+        ListNode head = new ListNode(0);
+        ListNode node = head;
         for (int i = 1; i < n; i++) {
-            node.next = new LinkedList(i);
+            node.next = new ListNode(i);
             node = node.next;
         }
         node.next = head;
@@ -78,11 +78,11 @@ public class W094_CountKQuit {
 
 }
 
-class LinkedList {
+class ListNode {
     int val;
-    LinkedList next;
+    ListNode next;
 
-    public LinkedList(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 }
