@@ -10,7 +10,7 @@ package leetcode;
  * <p/>
  * Created by kevin on 2016/4/22.
  */
-public class L75_SortColors {
+public class L075_SortColors {
     public void sortColors(int[] nums) {
         if (nums == null || nums.length < 2) return;
         int s = 0, e = nums.length - 1;
