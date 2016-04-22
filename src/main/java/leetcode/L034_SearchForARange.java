@@ -13,7 +13,7 @@ package leetcode;
  * <p/>
  * Created by kevin on 2016/4/22.
  */
-public class L34_SearchForARange {
+public class L034_SearchForARange {
     public int[] searchRange(int[] nums, int target) {
         // 循环实现，比较巧妙
         int[] res = new int[]{-1, -1};
