@@ -6,8 +6,9 @@ import leetcode.Utils.ListNode;
  * Sort a linked list in O(n log n) time using constant space complexity.
  * <p/>
  * Created by kevin on 2016/4/13.
- * 归并排序
+ * 链表 模拟 归并排序
  */
+@Deprecated
 public class L148_SortList {
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) return head;
