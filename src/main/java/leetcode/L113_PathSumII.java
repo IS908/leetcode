@@ -1,6 +1,5 @@
 package leetcode;
 
-import JavaBasicKnowledge.AbstractClassAndInterface.InterfaceDemo;
 import leetcode.Utils.TreeNode;
 
 import java.util.ArrayList;
