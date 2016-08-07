@@ -10,6 +10,6 @@ public class Main {
         Thread taskB = new Thread(new TaskB(pojo));
         taskA.start();
         taskB.start();
-        System.out.println("Main done!");
+        System.out.println("Main1 done!");
     }
 }
