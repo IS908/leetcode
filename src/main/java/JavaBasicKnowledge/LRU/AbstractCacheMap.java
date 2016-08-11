@@ -36,17 +36,16 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
         }
     }
 
-    protected Map<K,CacheObject<K,V>> cacheMap;
+    protected Map<K, CacheObject<K, V>> cacheMap;
 
     private final ReentrantReadWriteLock cacheLock = new ReentrantReadWriteLock();
     private final Lock readLock = cacheLock.readLock();
     private final Lock writeLock = cacheLock.writeLock();
 
 
-
     protected int cacheSize;      // 缓存大小 , 0 -> 无限制
 
-    protected  boolean existCustomExpire ; //是否设置默认过期时间
+    protected boolean existCustomExpire; //是否设置默认过期时间
 
     public int getCacheSize() {
         return cacheSize;
@@ -54,9 +53,9 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
 
     protected long defaultExpire;     // 默认过期时间, 0 -> 永不过期
 
-    public AbstractCacheMap(int cacheSize ,long defaultExpire){
-        this.cacheSize  = cacheSize ;
-        this.defaultExpire  = defaultExpire ;
+    public AbstractCacheMap(int cacheSize, long defaultExpire) {
+        this.cacheSize = cacheSize;
+        this.defaultExpire = defaultExpire;
     }
 
 
@@ -65,13 +64,13 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
     }
 
 
-    protected boolean isNeedClearExpiredObject(){
-        return defaultExpire > 0 || existCustomExpire ;
+    protected boolean isNeedClearExpiredObject() {
+        return defaultExpire > 0 || existCustomExpire;
     }
 
 
     public void put(K key, V value) {
-        put(key, value, defaultExpire );
+        put(key, value, defaultExpire);
     }
 
 
@@ -79,20 +78,18 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
         writeLock.lock();
 
         try {
-            CacheObject<K,V> co = new CacheObject<K,V>(key, value, expire);
+            CacheObject<K, V> co = new CacheObject<K, V>(key, value, expire);
             if (expire != 0) {
                 existCustomExpire = true;
             }
             if (isFull()) {
-                eliminate() ;
+                eliminate();
             }
             cacheMap.put(key, co);
-        }
-        finally {
+        } finally {
             writeLock.unlock();
         }
     }
-
 
 
     /**
@@ -102,7 +99,7 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
         readLock.lock();
 
         try {
-            CacheObject<K,V> co = cacheMap.get(key);
+            CacheObject<K, V> co = cacheMap.get(key);
             if (co == null) {
                 return null;
             }
@@ -112,8 +109,7 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
             }
 
             return co.getObject();
-        }
-        finally {
+        } finally {
             readLock.unlock();
         }
     }
@@ -122,8 +118,7 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
         writeLock.lock();
         try {
             return eliminateCache();
-        }
-        finally {
+        } finally {
             writeLock.unlock();
         }
     }
@@ -134,7 +129,6 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
      * @return
      */
     protected abstract int eliminateCache();
-
 
 
     public boolean isFull() {
@@ -149,8 +143,7 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
         writeLock.lock();
         try {
             cacheMap.remove(key);
-        }
-        finally {
+        } finally {
             writeLock.unlock();
         }
     }
@@ -160,8 +153,7 @@ public abstract class AbstractCacheMap<K, V> implements Cache<K, V> {
         writeLock.lock();
         try {
             cacheMap.clear();
-        }
-        finally {
+        } finally {
             writeLock.unlock();
         }
     }

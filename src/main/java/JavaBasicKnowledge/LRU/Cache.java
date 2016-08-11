@@ -26,18 +26,20 @@ public interface Cache<K, V> {
      * @param key
      * @param value
      */
-    void put(K key ,V value) ;
+    void put(K key, V value);
 
     /**
      * 向缓存添加value对象,并指定存活时间
+     *
      * @param key
      * @param value
-     * @param expire  过期时间
+     * @param expire 过期时间
      */
-    void put(K key ,V value , long expire ) ;
+    void put(K key, V value, long expire);
 
     /**
      * 查找缓存对象
+     *
      * @param key
      * @return
      */
@@ -46,12 +48,13 @@ public interface Cache<K, V> {
     /**
      * 淘汰对象
      *
-     * @return  被删除对象大小
+     * @return 被删除对象大小
      */
     int eliminate();
 
     /**
      * 缓存是否已经满
+     *
      * @return
      */
     boolean isFull();

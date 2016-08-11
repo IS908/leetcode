@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 /**
+ * 先进先出算法 实现
+ * <p>
  * Created by kevin on 16-8-11.
  */
 public class FIFOCache<K, V> extends AbstractCacheMap<K, V> {
@@ -14,7 +16,6 @@ public class FIFOCache<K, V> extends AbstractCacheMap<K, V> {
 
     @Override
     protected int eliminateCache() {
-
         int count = 0;
         K firstKey = null;
 
@@ -34,7 +35,6 @@ public class FIFOCache<K, V> extends AbstractCacheMap<K, V> {
         if (firstKey != null && isFull()) {//删除过期对象还是满,继续删除链表第一个
             cacheMap.remove(firstKey);
         }
-
         return count;
     }
 }
