@@ -16,23 +16,24 @@ import java.util.HashSet;
 public class L128_LongestConsecutiveSequence {
     public int longestConsecutive(int[] nums) {
         HashSet<Integer> set = new HashSet<>();
-        int maxCount = 0, currentCount;
-        for (int i : nums) set.add(i);
+        for (int i:nums)    set.add(i);
+        int maxLen = 0, curLen;
         for (int i : nums) {
+            if (set.isEmpty())  return maxLen;
             while (set.contains(i)) {
                 set.remove(i);
-                currentCount = 1;
-                for (int j = i + 1; set.contains(j); j++){
+                curLen = 1;
+                for (int j = i+1;set.contains(j);j++) {
                     set.remove(j);
-                    currentCount++;
+                    curLen++;
                 }
-                for (int j = i - 1; set.contains(j); j--){
+                for (int j = i-1;set.contains(j);j--) {
                     set.remove(j);
-                    currentCount++;
+                    curLen++;
                 }
-                maxCount = maxCount < currentCount ? currentCount : maxCount;
+                maxLen = Math.max(maxLen, curLen);
             }
         }
-        return maxCount;
+        return maxLen;
     }
 }
