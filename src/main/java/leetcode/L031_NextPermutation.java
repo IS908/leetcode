@@ -15,26 +15,15 @@ package leetcode;
  * Created by kevin on 2016/3/5.
  */
 public class L031_NextPermutation {
-    private void reverse(int[] nums, int start, int end) {
-        int tmp;
-        while (start < end) {
-            tmp = nums[start];
-            nums[start] = nums[end];
-            nums[end] = tmp;
-            start++;
-            end--;
-        }
-    }
-
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) return;
-        int loc, len = nums.length, tmp;
+        int loc, len = nums.length;
         for (int i = len - 1; i > 0; i--) {
             if (nums[i - 1] < nums[i]) {
                 loc = i - 1;
                 for (int j = len - 1; j > loc; j--) {
-                    if (nums[j] > nums[loc]) {
-                        tmp = nums[loc];
+                    if (nums[loc] < nums[j]) {
+                        int tmp = nums[loc];
                         nums[loc] = nums[j];
                         nums[j] = tmp;
                         break;
@@ -44,8 +33,17 @@ public class L031_NextPermutation {
                 return;
             }
         }
-
-        // 当前为最大排列，寻找最小排列
         reverse(nums, 0, len - 1);
+    }
+
+    private void reverse(int[] nums, int start, int end) {
+        int tmp;
+        while (start < end) {
+            tmp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = tmp;
+            start++;
+            end--;
+        }
     }
 }
