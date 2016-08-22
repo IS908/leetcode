@@ -19,11 +19,9 @@ public class L018_4Sum {
             for (int j = i + 1; j < nums.length - 2; j++) {
                 for (int m = j + 1, n = nums.length - 1; m < n; ) {
                     sum = nums[i] + nums[j] + nums[m] + nums[n];
-                    if (sum < target) {
-                        m++;
-                    } else if (sum > target) {
-                        n--;
-                    } else {
+                    if (sum < target) m++;
+                    else if (sum > target) n--;
+                    else {
                         List<Integer> list = new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[m], nums[n]));
                         result.add(list);
                         m++;
