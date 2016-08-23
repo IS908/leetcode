@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Stack;
+
 /**
  * Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
  * <p/>
@@ -30,7 +32,7 @@ public class L042_TrappingRainWater {
         return water;
     }
 
-    public int trap01(int[] height) {
+    public int trap02(int[] height) {
         if (height == null || height.length < 1) return 0;
         int len = height.length;
         int[] leftMax = new int[len];
@@ -50,6 +52,32 @@ public class L042_TrappingRainWater {
         for (int i = 0; i < len; i++) {
             int cur = Math.min(leftMax[i], rightMax[i]);
             if (cur > height[i]) sum += cur - height[i];    // 此处加判断防止减掉最高的柱子，导致结果变小
+        }
+
+        return sum;
+    }
+
+    // 堆栈实现方式
+    public int trap03(int[] height) {
+        if (height == null || height.length < 1) return 0;
+
+        int len = height.length;
+        Stack<Integer> s = new Stack<>();
+
+        int sum = 0;
+        for (int i = 0; i < len; i++) {
+            int h = 0;
+            while (!s.isEmpty()) {
+                int pos = s.peek();
+                int bar = height[pos];
+                // bar, h, height[i] 形成一个 凹 形
+                sum += (Math.min(bar, height[i]) - h) * (i - pos - 1);
+                h = bar;
+                if (bar > height[i]) break;
+                else
+                    s.pop();
+            }
+            s.push(i);
         }
 
         return sum;
