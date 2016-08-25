@@ -14,6 +14,7 @@ public class L048_RotateImage {
     public void rotate(int[][] matrix) {
         if (matrix == null || matrix.length < 2) return;
         int tmp, len = matrix.length;
+        // 沿主对角线翻转
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
                 tmp = matrix[i][j];
@@ -21,6 +22,8 @@ public class L048_RotateImage {
                 matrix[j][i] = tmp;
             }
         }
+
+        // 沿树直中心左右翻转
         for (int i = 0; i < len; i++) {
             for (int j = 0; j < len / 2; j++) {
                 tmp = matrix[i][j];
