@@ -11,7 +11,7 @@ public class L066_PlusOne {
     public int[] plusOne(int[] digits) {
         int flag = 1;
         int tmp;
-        for (int i = digits.length - 1; i >= 0; i--) {
+        for (int i = digits.length - 1; i >= 0 && flag > 0; i--) {
             tmp = digits[i] + flag;
             digits[i] = tmp % 10;
             flag = tmp / 10;
