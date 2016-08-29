@@ -9,7 +9,6 @@ package leetcode;
  * <p/>
  * Created by kevin on 2016/3/7.
  */
-@Deprecated
 public class L134_GasStation {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         if (gas.length == 0) return -1;
