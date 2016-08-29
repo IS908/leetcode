@@ -30,6 +30,7 @@ public class L137_SingleNumberII {
      * @return
      */
     @Deprecated
+    // TODO: 16-8-29 待研究
     public int singleNumber02(int[] nums) {
         int one = 0, two = 0, three = 0;
         for (int i : nums) {
