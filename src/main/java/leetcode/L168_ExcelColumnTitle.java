@@ -26,11 +26,13 @@ public class L168_ExcelColumnTitle {
         return sb.toString();
     }
 
+    // 递归解法
     public void convert(int n, StringBuilder sb) {
         if (n > 25) convert(n / 26 - 1, sb);
         sb.append((char) ('A' + (n % 26)));
     }
 
+    // 非递归解法
     public String convertToTitle02(int n) {
         Stack<Character> stack = new Stack<>();
         n--;
