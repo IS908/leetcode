@@ -3,26 +3,26 @@ package JavaBasicKnowledge.ProducerConsumer;
 /**
  * Created by kevin on 16-3-19.
  */
-public class Consumer extends Thread {
-    // 每次消费的产品数量
+public class Producer extends Thread {
+    // 每次生产的产品数量
     private int num;
 
     // 所在放置的仓库
     private Storage storage;
 
     // 构造函数，设置仓库
-    public Consumer(Storage storage) {
+    public Producer(Storage storage) {
         this.storage = storage;
     }
 
     // 线程run函数
     public void run() {
-        consume(num);
+        produce(num);
     }
 
     // 调用仓库Storage的生产函数
-    public void consume(int num) {
-        storage.consume(num);
+    public void produce(int num) {
+        storage.produce(num);
     }
 
     // get/set方法
