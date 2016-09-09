@@ -15,7 +15,7 @@ public class ProducerConsumer {
         new Consumer().start();
     }
 
-    class Producer extends Thread{
+    class Producer extends Thread {
         @Override
         public void run() {
             while (true) {
@@ -50,7 +50,7 @@ public class ProducerConsumer {
                         }
                         if (list.remove("one product!")) {
                             System.out.println("consumer consume a product! storeHouse:" + list.size());
-                                    Thread.sleep((long) (Math.random() * 3000));
+                            Thread.sleep((long) (Math.random() * 3000));
                             list.notify();
                         }
                     } catch (InterruptedException e) {

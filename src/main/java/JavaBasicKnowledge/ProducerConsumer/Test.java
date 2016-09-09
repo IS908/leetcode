@@ -4,8 +4,7 @@ package JavaBasicKnowledge.ProducerConsumer;
  * Created by kevin on 16-3-19.
  */
 public class Test {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // 仓库对象
         Storage storage = new Storage();
 
