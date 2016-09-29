@@ -2,15 +2,69 @@ package leetcode;
 
 import leetcode.Utils.ListNode;
 
+import java.util.List;
+
 /**
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
  * <p/>
  * Created by kevin on 2016/3/3.
  */
-@Deprecated
 public class L023_MergeKSortedLists {
-    // 该算法超时
+    // 使用归并排序的思想合并链表
     public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        if (lists.length == 1) return lists[0];
+
+        ListNode head = mergeKSortedList(lists, 0, lists.length - 1);
+        return head;
+    }
+
+    // 归并排序的思想将链表合并
+    private ListNode mergeKSortedList(ListNode[] lists, int left, int right) {
+        if (left == right) return lists[left];
+        else if (left + 1 >= right) return mergeTwoLists(lists[left], lists[right]);
+
+        int mid = left + (right - left) / 2;
+        ListNode list1 = mergeKSortedList(lists, left, mid);
+        ListNode list2 = mergeKSortedList(lists, mid + 1, right);
+        return mergeTwoLists(list1, list2);
+    }
+
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null || l2 == null) {
+            if (l1 != null) return l1;
+            else if (l2 != null) return l2;
+            else return null;
+        }
+        ListNode head = new ListNode(-1);
+        ListNode p = head;
+
+        while (l1 != null && l2 != null) {
+            if (l1.val > l2.val) {
+                p.next = l2;
+                p = p.next;
+                l2 = l2.next;
+            } else {
+                p.next = l1;
+                p = p.next;
+                l1 = l1.next;
+            }
+        }
+        while (l1 != null) {
+            p.next = l1;
+            p = p.next;
+            l1 = l1.next;
+        }
+        while (l2 != null) {
+            p.next = l2;
+            p = p.next;
+            l2 = l2.next;
+        }
+        return head.next;
+    }
+
+    // 该算法超时
+    public ListNode mergeKLists01(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         if (lists.length == 1) return lists[0];
         ListNode head, p, q;
@@ -34,6 +88,7 @@ public class L023_MergeKSortedLists {
         if (flag) {
             lists[loc] = lists[loc].next;
         }
+
         while (q != null) {
             min = Integer.MAX_VALUE;
             for (int i = 1; i < lists.length; i++) {
@@ -56,14 +111,5 @@ public class L023_MergeKSortedLists {
             }
         }
         return head;
-
-        /*if (lists == null || lists.length == 0) return null;
-        if (lists.length == 1) return lists[0];
-        ListNode head = lists[0];
-        L021_MergeTwoSortedLists l021 = new L021_MergeTwoSortedLists();
-        for (int i = 1; i < lists.length; i++) {
-            head = l021.mergeTwoLists(head, lists[i]);
-        }
-        return head;*/
     }
 }
