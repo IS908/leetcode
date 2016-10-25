@@ -1,7 +1,6 @@
 package JDK.JUC.Executors;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * 创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程
@@ -12,7 +11,17 @@ import java.util.concurrent.Executors;
  */
 public class ThreadPoolExecutorDemo01 {
     public static void main(String[] args) {
-        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+//        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+        ExecutorService cachedThreadPool =
+                new ThreadPoolExecutor(
+                        0, // 保留的线程池大小
+                        Integer.MAX_VALUE, // 线程池的最大大小
+                        60L, // 空闲线程结束的超时时间
+                        TimeUnit.SECONDS, // keepAliveTime 结束超时时间的单位
+                        new SynchronousQueue<Runnable>(),    // 工作队列
+                        Executors.defaultThreadFactory(),   //
+                        new ThreadPoolExecutor.AbortPolicy()    // 拒绝策略
+                );
         for (int i = 0; i < 10; i++) {
             final int index = i;
             try {
@@ -26,6 +35,7 @@ public class ThreadPoolExecutorDemo01 {
                     System.out.println(index);
                 }
             });
+
         }
     }
 }

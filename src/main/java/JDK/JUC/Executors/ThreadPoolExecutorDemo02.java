@@ -1,9 +1,6 @@
 package JDK.JUC.Executors;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待
@@ -15,7 +12,8 @@ import java.util.concurrent.Executors;
  */
 public class ThreadPoolExecutorDemo02 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+//        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+        ExecutorService fixedThreadPool = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
         for (int i = 0; i < 10; i++) {
             final int index = i;
             String output = fixedThreadPool.submit(new Callable<String>() {
