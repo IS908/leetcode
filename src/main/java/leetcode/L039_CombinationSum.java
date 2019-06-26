@@ -27,6 +27,7 @@ public class L039_CombinationSum {
 
         if (remain == 0) {
             result.add(new LinkedList<>(list));
+            return;
         }
 
         for (int i = start; i < candidates.length; i++) {
