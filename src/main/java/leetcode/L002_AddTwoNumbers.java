@@ -13,8 +13,8 @@ import leetcode.Utils.ListNode;
 @Deprecated // 细节处理，需要回顾重写
 public class L002_AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode ln1 = l1, ln2 = l2, head = null, node = null;
-        int carry = 0, remainder = 0, sum = 0;
+        ListNode ln1 = l1, ln2 = l2, head, node;
+        int carry = 0, remainder, sum;
         head = node = new ListNode(0);
 
         while(ln1 != null || ln2 != null || carry != 0) {
@@ -27,4 +27,6 @@ public class L002_AddTwoNumbers {
         }
         return head.next;
     }
+
+
 }
