@@ -19,20 +19,30 @@ public class L018_4Sum {
             for (int j = i + 1; j < nums.length - 2; j++) {
                 for (int m = j + 1, n = nums.length - 1; m < n; ) {
                     sum = nums[i] + nums[j] + nums[m] + nums[n];
-                    if (sum < target) m++;
-                    else if (sum > target) n--;
-                    else {
+                    if (sum < target) {
+                        m++;
+                    } else if (sum > target) {
+                        n--;
+                    } else {
                         List<Integer> list = new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[m], nums[n]));
                         result.add(list);
                         m++;
                         n--;
-                        while ((m < n) && nums[n] == nums[n + 1]) n--;
-                        while ((m < n) && nums[m] == nums[m - 1]) m++;
+                        while ((m < n) && nums[n] == nums[n + 1]) {
+                            n--;
+                        }
+                        while ((m < n) && nums[m] == nums[m - 1]) {
+                            m++;
+                        }
                     }
                 }
-                while (j < nums.length - 2 && nums[j] == nums[j + 1]) j++;
+                while (j < nums.length - 2 && nums[j] == nums[j + 1]) {
+                    j++;
+                }
             }
-            while (i < nums.length - 2 && nums[i] == nums[i + 1]) i++;
+            while (i < nums.length - 2 && nums[i] == nums[i + 1]) {
+                i++;
+            }
         }
         return result;
     }

@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Given a string S, find the longest palindromic substring in S.
  * You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
- *
+ * <p>
  * Created by kevin on 2016/2/21.
  */
 public class L005_LongestPalindromicSubstring {
@@ -42,29 +42,51 @@ public class L005_LongestPalindromicSubstring {
     int palinLen = 0;
 
     public String longestPalindrome(String s) {
-
-        if(s.length()<2 || s==null) return s;
-
-        char[] chars = s.toCharArray();
-
-        for(int i=0; i<chars.length-1; i++){
-            checkThisPos(chars, i, i);
-            checkThisPos(chars, i, i+1);
+        if (s == null || s.length() < 2) {
+            return s;
         }
-        return s.substring(palinStart, palinStart+palinLen);
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length - 1; i++) {
+            checkThisPos(chars, i, i);
+            checkThisPos(chars, i, i + 1);
+        }
+        return s.substring(palinStart, palinStart + palinLen);
     }
 
-    public void checkThisPos(char[] chars, int left, int right){
-
-        while(left>=0 && right<chars.length && chars[left]==chars[right]){
+    public void checkThisPos(char[] chars, int left, int right) {
+        while (left >= 0 && right < chars.length && chars[left] == chars[right]) {
             left--;
             right++;
         }
-        if(right-left-1>palinLen){
-            palinLen = right-left-1;
-            palinStart = left+1;
-            // System.out.println("palinStart: "+ palinStart+" palinLen: "+palinLen);
+        if (right - left - 1 > palinLen) {
+            palinLen = right - left - 1;
+            palinStart = left + 1;
+        }
+    }
+
+    public String longestPalindrome2(String s) {
+        if (s == null || s.length() < 2) {
+            return s;
+        }
+        int[] tmp = new int[]{0, 1};
+        char[] chars = s.toCharArray();
+
+        for (int i = 0; i < chars.length - 1; i++) {
+            checkPos(chars, i, i, tmp);
+            checkPos(chars, i, (i + 1), tmp);
+        }
+        return s.substring(tmp[0], tmp[0] + tmp[1]);
+    }
+
+    private void checkPos(char[] chars, int left, int right, int[] res) {
+        while (left >= 0 && right < chars.length && chars[left] == chars[right]) {
+            left--;
+            right++;
         }
 
+        if (right - left - 1 > res[1]) {
+            res[0] = left + 1;
+            res[1] = right - left - 1;
+        }
     }
 }

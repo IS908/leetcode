@@ -10,7 +10,9 @@ package leetcode;
  */
 public class L121_BestTimeToBuyAndSellStock {
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length < 2) return 0;
+        if (prices == null || prices.length < 2) {
+            return 0;
+        }
         int min = prices[0], diff = Integer.MIN_VALUE;
         for (int i = 1; i < prices.length; i++) {
             min = Math.min(min, prices[i]);

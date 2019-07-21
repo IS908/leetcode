@@ -27,4 +27,10 @@ public class QuickSortDemo {
 
         mergeSort(a, tmp, 0, a.length - 1);
     }
+
+    public void quickSort(int[] arr, int low, int high) {
+        if (low > high) return;
+
+
+    }
 }

@@ -11,8 +11,11 @@ package leetcode;
  * Created by kevin on 2016/3/19.
  */
 public class L123_BestTimeToBuyAndSellStockIII {
+    // TODO
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length < 2) return 0;
+        if (prices == null || prices.length < 2) {
+            return 0;
+        }
         int buy1 = prices[0], buy2 = Integer.MIN_VALUE,
                 sell1 = Integer.MIN_VALUE, sell2 = Integer.MIN_VALUE;
         for (int i = 1; i < prices.length; i++) {

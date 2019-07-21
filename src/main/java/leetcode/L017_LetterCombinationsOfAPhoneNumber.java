@@ -43,10 +43,12 @@ public class L017_LetterCombinationsOfAPhoneNumber {
     // 迭代解决方案
     public List<String> letterCombinations1(String digits) {
         List<String> result = new ArrayList<>();
-        if (digits.length() < 1)    return result;
+        if (digits.length() < 1) {
+            return result;
+        }
         String[] map = new String[]{" ", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         String str = map[digits.charAt(0) - '0'];
-        for (int i = 0;i<str.length();i++) {
+        for (int i = 0; i < str.length(); i++) {
             result.add(String.valueOf(str.charAt(i)));
         }
         for (int i = 1; i < digits.length(); i++) {

@@ -12,10 +12,14 @@ package leetcode;
  */
 public class L122_BestTimeToBuyAndSellStockII {
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length < 2) return 0;
+        if (prices == null || prices.length < 2) {
+            return 0;
+        }
         int diff = 0;
         for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1]) diff += prices[i] - prices[i - 1];
+            if (prices[i] > prices[i - 1]) {
+                diff += prices[i] - prices[i - 1];
+            }
         }
         return diff;
     }

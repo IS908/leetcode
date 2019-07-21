@@ -1,7 +1,5 @@
 package leetcode;
 
-import java.util.Arrays;
-
 /**
  * Say you have an array for which the ith element is the price of a given stock on day i.
  * <p/>
@@ -13,9 +11,15 @@ import java.util.Arrays;
  * Created by kevin on 2016/3/19.
  */
 public class L188_BestTimeToBuyAndSellStockIV {
+
+    // TODO
     public int maxProfit(int k, int[] prices) {
-        if (prices == null || prices.length < 2) return 0;
-        if (k < 1) return 0;
+        if (prices == null || prices.length < 2) {
+            return 0;
+        }
+        if (k < 1) {
+            return 0;
+        }
         // 当k大于数据的一半长度时肯定买卖不到k次，此时计算最大收益
         if (k > prices.length / 2) {
             int max = 0;

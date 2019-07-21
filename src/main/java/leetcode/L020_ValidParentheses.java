@@ -12,8 +12,12 @@ import java.util.Stack;
  */
 public class L020_ValidParentheses {
     public boolean isValid(String s) {
-        if (s == null || s.length() == 0) return true;
-        if (s.length() % 2 != 0) return false;
+        if (s == null || s.length() == 0) {
+            return true;
+        }
+        if (s.length() % 2 != 0) {
+            return false;
+        }
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);

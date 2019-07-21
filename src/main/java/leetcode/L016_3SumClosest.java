@@ -19,9 +19,13 @@ public class L016_3SumClosest {
                     result = tmp;
                 }
 
-                if (tmp > target) k--;
-                else if (tmp < target) j++;
-                else return target;
+                if (tmp > target) {
+                    k--;
+                } else if (tmp < target) {
+                    j++;
+                } else {
+                    return target;
+                }
             }
             /*for (int j = i + 1; j < nums.length - 1; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
@@ -35,10 +39,4 @@ public class L016_3SumClosest {
         return result;
     }
 
-    public static void main(String[] args) {
-        int[] nums = new int[]{-3,-2,-5,3,-4};
-        L016_3SumClosest sumClosest = new L016_3SumClosest();
-        int res = sumClosest.threeSumClosest(nums, -1);
-        System.out.println(res);
-    }
 }

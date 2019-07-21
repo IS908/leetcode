@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.tree;
 
 /**
  * 长度为N的序列Sequence=abcd...，问有多少种不同的二叉树形态中序遍历是这个，写递推公式

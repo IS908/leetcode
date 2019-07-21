@@ -7,7 +7,6 @@ package leetcode;
  * <p/>
  * Created by kevin on 2016/2/29.
  */
-@Deprecated
 public class L012_IntegerToRoman {
     public String intToRoman(int num) {
         final int[] radix = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};

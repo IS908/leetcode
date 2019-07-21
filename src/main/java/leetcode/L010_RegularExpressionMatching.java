@@ -49,8 +49,9 @@ public class L010_RegularExpressionMatching {
         res[0] = true;
 
         int i, j;
-        for (j = 2; j <= n; j++)
+        for (j = 2; j <= n; j++) {
             res[j] = res[j - 2] && p.charAt(j - 1) == '*';
+        }
 
         char pc, sc, tc;
         boolean pre, cur; // pre=res[i - 1][j - 1], cur=res[i-1][j]

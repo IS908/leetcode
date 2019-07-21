@@ -25,14 +25,22 @@ public class L008_StringToInteger_atoi {
                         continue;
                     case '0':
                         continue;
+                    default:
+                        break;
                 }
             }
-            if (zero && ch[i] == '0') continue;
-            else zero = false;
-            if (ch[i] > '9' || ch[i] < '0') break;
+            if (zero && ch[i] == '0') {
+                continue;
+            } else {
+                zero = false;
+            }
+            if (ch[i] > '9' || ch[i] < '0') {
+                break;
+            }
             tmp = ch[i] - '0';
-            if (result > Integer.MAX_VALUE / 10 || result == Integer.MAX_VALUE / 10 && Integer.MAX_VALUE % 10 < tmp)
+            if (result > Integer.MAX_VALUE / 10 || result == Integer.MAX_VALUE / 10 && Integer.MAX_VALUE % 10 < tmp) {
                 return flag ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            }
             result = result * 10 + tmp;
         }
         if (flag) {
