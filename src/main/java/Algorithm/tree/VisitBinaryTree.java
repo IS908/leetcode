@@ -1,6 +1,5 @@
 package Algorithm.tree;
 
-import Algorithm.Algorithm;
 import Algorithm.entity.TreeNode;
 
 import java.util.Stack;
@@ -17,7 +16,7 @@ public class VisitBinaryTree {
      *
      * @param root
      */
-    public void preOrderRecur(Algorithm.entity.TreeNode root) {
+    public void preOrderRecur(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -31,7 +30,7 @@ public class VisitBinaryTree {
      *
      * @param root
      */
-    public void inOrderRecur(Algorithm.entity.TreeNode root) {
+    public void inOrderRecur(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -45,7 +44,7 @@ public class VisitBinaryTree {
      *
      * @param root
      */
-    public void postOrderRecur(Algorithm.entity.TreeNode root) {
+    public void postOrderRecur(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -59,14 +58,14 @@ public class VisitBinaryTree {
      *
      * @param root
      */
-    public void preOrder(Algorithm.entity.TreeNode root) {
+    public void preOrder(TreeNode root) {
         if (root == null) {
             return;
         }
-        Stack<Algorithm.entity.TreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            Algorithm.entity.TreeNode node = stack.pop();
+            TreeNode node = stack.pop();
             visit(node);
             if (node.right != null) {
                 stack.push(node.right);
@@ -82,12 +81,12 @@ public class VisitBinaryTree {
      *
      * @param root
      */
-    public void inOrder(Algorithm.entity.TreeNode root) {
+    public void inOrder(TreeNode root) {
         if (root == null) {
             return;
         }
-        Stack<Algorithm.entity.TreeNode> stack = new Stack<>();
-        Algorithm.entity.TreeNode cur = root;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
         while (cur != null || !stack.isEmpty()) {
             while (cur != null) {
                 stack.push(cur);
@@ -104,10 +103,10 @@ public class VisitBinaryTree {
      *
      * @param root
      */
-    public void inOrderUnRecur(Algorithm.entity.TreeNode root) {
+    public void inOrderUnRecur(TreeNode root) {
         System.out.print("in-order: ");
         if (root != null) {
-            Stack<Algorithm.entity.TreeNode> stack = new Stack<Algorithm.entity.TreeNode>();
+            Stack<TreeNode> stack = new Stack<>();
             while (!stack.isEmpty() || root != null) {
                 if (root != null) {
                     stack.push(root);
@@ -128,15 +127,15 @@ public class VisitBinaryTree {
      *
      * @param root
      */
-    public void postOrderUnRecur1(Algorithm.entity.TreeNode root) {
+    public void postOrderUnRecur1(TreeNode root) {
         if (root == null) {
             return;
         }
-        Stack<Algorithm.entity.TreeNode> stack1 = new Stack<>();
-        Stack<Algorithm.entity.TreeNode> stack2 = new Stack<>();
+        Stack<TreeNode> stack1 = new Stack<>();
+        Stack<TreeNode> stack2 = new Stack<>();
         stack1.push(root);
         while (!stack1.isEmpty()) {
-            Algorithm.entity.TreeNode node = stack1.pop();
+            TreeNode node = stack1.pop();
             stack2.push(node);
             if (node.left != null) {
                 stack1.push(node.left);
@@ -156,14 +155,14 @@ public class VisitBinaryTree {
      *
      * @param root
      */
-    public void postOrderUnRecur2(Algorithm.entity.TreeNode root) {
+    public void postOrderUnRecur2(TreeNode root) {
         System.out.print("pos-order: ");
         if (root != null) {
-            Stack<Algorithm.entity.TreeNode> stack = new Stack<>();
+            Stack<TreeNode> stack = new Stack<>();
             stack.push(root);
             // c 代表stack的栈顶节点
             // h 代表最近一次弹出并访问的节点
-            Algorithm.entity.TreeNode c, h = root;
+            TreeNode c, h = root;
             while (!stack.isEmpty()) {
                 c = stack.peek();
                 if (c.left != null && h != c.left && h != c.right) {
@@ -299,7 +298,7 @@ public class VisitBinaryTree {
     }
 
 
-    public void visit(Algorithm.entity.TreeNode node) {
+    public void visit(TreeNode node) {
         // 此处进行Node节点的访问
         System.out.println(node.value);
     }
