@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.array.matrix;
 
 /**
  * @Description: 计算矩阵阶乘

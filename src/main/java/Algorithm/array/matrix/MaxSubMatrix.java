@@ -1,4 +1,4 @@
-package Algorithm;
+package Algorithm.array.matrix;
 
 import java.util.Stack;
 
